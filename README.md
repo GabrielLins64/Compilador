@@ -6,4 +6,4 @@
 
 ## Referências:
 
-[1] AHO, A. V.; SETHI, R.; ULLMAN, J. D. Compiladores: Princípios Técn    icas e Ferramentas. 1 ed. Rio de Janeiro: Editora LTC, 1995.
+[1] AHO, A. V.; SETHI, R.; ULLMAN, J. D. Compiladores: Princípios Técnicas e Ferramentas. 1 ed. Rio de Janeiro: Editora LTC, 1995.
