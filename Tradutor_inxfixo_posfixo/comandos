@@ -1,0 +1,46 @@
+------------- X ------------- X ------------- 
+> Para compilar arquivos src em objeto
+de um por um:
+
+$ gcc -c -Iinclude src/meu_src.c -o build/meu_src.c
+
+------------- X ------------- X ------------- 
+> Para compilar tudo em arquivos objeto
+de uma vez:
+
+Navegue até a pasta "build" e dê:
+$ gcc -c -I../include ../src/*.c
+
+O comando acima compila (flag -c) todos
+os arquivos c fonte (em ../src) e utiliza
+o diretório (../include) (flag -I) como
+diretório de inclusão dos headers (o que
+permite que sejam incluídos com:
+	"#include <meu_header>"
+
+------------- X ------------- X ------------- 
+> Para gerar um binário executável:
+
+No diretório principal:
+$ gcc -o bin/out build/*.o
+
+O comando acima linka todos os arquivos
+objeto criados em 'build' para um único
+binário executável em 'bin'
+
+------------- X ------------- X ------------- 
+> Para compilar num executável de uma só
+vez:
+
+$ gcc -o bin/out src/*.c -Iinclude
+
+------------- X ------------- X ------------- 
+> Para executar:
+
+./bin/out
+
+------------- X ------------- X ------------- 
+> Para inserir um arquivo de entrada no programa:
+
+./bin/out < data/entrada
+
