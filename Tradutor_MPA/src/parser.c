@@ -18,6 +18,7 @@ void cmd()
 	int t, tval;
 	while(1)
 		switch (lookahead) {
+			int saida, teste;
 			case ID:
 				t = lookahead; tval = tokenval;
 				reconhecer(ID);
@@ -33,10 +34,20 @@ void cmd()
 				continue;
 			case IF:
 				reconhecer(IF); expr();
-				int saida = novo_rotulo();
+				saida = novo_rotulo();
 				emitir(GOFALSE, saida);
 				reconhecer(THEN); cmd();
 				emitir(LABEL, saida);
+				continue;
+			case WHILE:
+				teste = novo_rotulo();
+				saida = novo_rotulo();
+				emitir(LABEL, teste);
+				reconhecer(WHILE); expr();
+				emitir(GOFALSE, saida);
+				reconhecer(THEN); cmd();
+				emitir(GOTO, teste);
+				emitir(LABEL, saida);				
 				continue;
 			case ';':
 				return;

@@ -1,4 +1,9 @@
 12 * (3 + 41) mod 2 div 5;
 y * x + (myVar div 2);
 novaVariavel;
-
+10;
+3 + 5;
+abc := zeta + 23 mod (2 - 5) *3;
+if algumaCoisa then outraCoisa;
+if 3 + 5 then if x then y := 3;
+3 + 5;

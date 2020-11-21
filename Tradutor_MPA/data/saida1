@@ -1,0 +1,50 @@
+push 12
+push 3
+push 41
++
+*
+push 2
+MOD
+push 5
+DIV
+r-value y
+r-value x
+*
+r-value myVar
+push 2
+DIV
++
+r-value novaVariavel
+push 10
+push 3
+push 5
++
+l-value abc
+r-value zeta
+push 23
+push 2
+push 5
+-
+MOD
+push 3
+*
++
+:=
+r-value algumaCoisa
+gofalse l1
+r-value outraCoisa
+label l1
+push 3
+push 5
++
+gofalse l2
+r-value x
+gofalse l3
+l-value y
+push 3
+:=
+label l3
+label l2
+push 3
+push 5
++

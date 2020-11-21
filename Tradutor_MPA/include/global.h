@@ -25,6 +25,7 @@
 #define IF	266
 #define THEN	267
 #define GOTO	268
+#define WHILE	269
 
 // Erros:
 #define ERR_VARGRANDE 	1

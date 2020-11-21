@@ -8,6 +8,7 @@ struct entry palavras_chave[] = {
 	":=", ASSIGN,
 	"if", IF,
 	"then", THEN,
+	"while", WHILE,
 	0, 0
 };
 
