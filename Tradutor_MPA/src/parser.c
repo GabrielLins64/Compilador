@@ -31,6 +31,13 @@ void cmd()
 					expr(); emitir(ASSIGN, NONE);
 				} 
 				continue;
+			case IF:
+				reconhecer(IF); expr();
+				int saida = novo_rotulo();
+				emitir(GOFALSE, saida);
+				reconhecer(THEN); cmd();
+				emitir(LABEL, saida);
+				continue;
 			case ';':
 				return;
 			default:

@@ -37,7 +37,14 @@ int inserir(char s[], int tok)
 	return lastentry;
 }
 
-void print_tab_simb() // Método de debug
+int novo_rotulo()
+{
+	crotulos += 1;
+	return crotulos;
+}
+
+// Método de debug
+void print_tab_simb()
 {
 	int p;
 	printf("Tabela de símbolos atualizada:\n");

@@ -11,12 +11,20 @@
 
 // Tokens:
 #define NUM	256
-#define DIV	257
-#define MOD	258
-#define ID	259
-#define LVALUE	260
-#define ASSIGN	261
-#define DONE	262
+#define ID	257
+#define LVALUE	258
+#define ASSIGN	259
+#define LABEL	260
+#define GOFALSE	261
+#define GOTRUE	262
+#define DONE	263
+
+// Keywords:
+#define DIV	264
+#define MOD	265
+#define IF	266
+#define THEN	267
+#define GOTO	268
 
 // Erros:
 #define ERR_VARGRANDE 	1
@@ -27,6 +35,7 @@
 
 int tokenval; 	// Valor do atributo token
 int clinha; 	// Contador de linhas
+int crotulos;	// Contador de rótulos
 
 // Tipo da entrada da tabela de símbolos
 struct entry {

@@ -1,9 +1,13 @@
 #include <global.h>
 
+int crotulos = 0;
+
 struct entry palavras_chave[] = {
 	"div", DIV,
 	"mod", MOD,
 	":=", ASSIGN,
+	"if", IF,
+	"then", THEN,
 	0, 0
 };
 

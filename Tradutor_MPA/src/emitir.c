@@ -21,6 +21,14 @@ void emitir(int t, int tval)
 			printf("l-value %s\n", tab_simb[tval].lexptr); break;
 		case ASSIGN:
 			printf(":=\n"); break;
+		case LABEL:
+			printf("label l%d\n", tval); break;
+		case GOFALSE:
+			printf("gofalse l%d\n", tval); break;
+		case GOTRUE:
+			printf("gotrue l%d\n", tval); break;
+		case GOTO:
+			printf("goto l%d\n", tval); break;
 		default:
 			erro(ERR_TOKENDESC, t);
 	}
