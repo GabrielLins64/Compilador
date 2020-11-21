@@ -22,9 +22,9 @@ void cmd()
 				t = lookahead; tval = tokenval;
 				reconhecer(ID);
 				if(lookahead != ASSIGN) {
-					int la = lookahead;
-					emitir(ID, tval); reconhecer(la);
-					expr(); emitir(la, NONE);
+					ungetc(lookahead, stdin);
+					lookahead = t; tokenval = tval;
+					expr();
 				}
 				else {
 					emitir(LVALUE, tokenval); reconhecer(ASSIGN);
