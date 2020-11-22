@@ -9,6 +9,8 @@ struct entry palavras_chave[] = {
 	"if", IF,
 	"then", THEN,
 	"while", WHILE,
+	"or", OR,
+	"and", AND,
 	0, 0
 };
 

@@ -15,23 +15,10 @@ void parse()
 
 void cmd()
 {
-	int t, tval;
+	int t, tval, p;
 	while(1)
 		switch (lookahead) {
 			int saida, teste;
-			case ID:
-				t = lookahead; tval = tokenval;
-				reconhecer(ID);
-				if(lookahead != ASSIGN) {
-					ungetc(lookahead, stdin);
-					lookahead = t; tokenval = tval;
-					expr();
-				}
-				else {
-					emitir(LVALUE, tokenval); reconhecer(ASSIGN);
-					expr(); emitir(ASSIGN, NONE);
-				} 
-				continue;
 			case IF:
 				reconhecer(IF); expr();
 				saida = novo_rotulo();
@@ -59,7 +46,7 @@ void cmd()
 
 void expr()
 {
-	int t;
+	int t, saida;
 	termo();
 	while(1)
 		switch (lookahead) {
@@ -67,6 +54,16 @@ void expr()
 			case '-':
 				t = lookahead;
 				reconhecer(lookahead); termo(); emitir(t, NONE);
+				continue;
+			case ASSIGN:
+				reconhecer(ASSIGN); expr(); emitir(ASSIGN, NONE);
+				continue;
+			case OR:
+				saida = novo_rotulo();
+				reconhecer(OR); emitir(COPY, NONE);
+				emitir(GOTRUE, saida);
+				emitir(POP, NONE);
+				expr(); emitir(LABEL, saida);
 				continue;
 			default:
 				return;
@@ -93,6 +90,7 @@ void termo()
 
 void fator()
 {
+	int tval;
 	switch(lookahead) {
 		case '(':
 			reconhecer('('); expr(); reconhecer(')'); 
@@ -101,7 +99,10 @@ void fator()
 			emitir(NUM, tokenval); reconhecer(NUM); 
 			break;
 		case ID:
-			emitir(ID, tokenval); reconhecer(ID);
+			// emitir(ID, tokenval); reconhecer(ID);
+			tval = tokenval;
+			reconhecer(ID);
+			lookahead == ASSIGN ? emitir(LVALUE, tval) : emitir(ID, tval);
 			break;
 		default:
 			erro(ERR_SINTAXE, lookahead);

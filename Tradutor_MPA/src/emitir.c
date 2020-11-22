@@ -29,6 +29,10 @@ void emitir(int t, int tval)
 			printf("gotrue l%d\n", tval); break;
 		case GOTO:
 			printf("goto l%d\n", tval); break;
+		case COPY:
+			printf("copy\n"); break;
+		case POP:
+			printf("pop\n"); break;
 		default:
 			erro(ERR_TOKENDESC, t);
 	}

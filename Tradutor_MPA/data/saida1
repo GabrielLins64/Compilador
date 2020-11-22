@@ -87,3 +87,15 @@ goto l11
 label l12
 goto l9
 label l10
+r-value x
+copy
+gotrue l13
+pop
+r-value y
+label l13
+push 5
+copy
+gotrue l14
+pop
+push 2
+label l14

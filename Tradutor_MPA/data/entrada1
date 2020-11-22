@@ -11,3 +11,5 @@ if 3 + 5 then if x then y := 3;
 while x then y;
 while (x) then if (z - 1) then z := z - 1;
 while x1 then while x2 then y2:=1;
+x or y;
+5 or 2;

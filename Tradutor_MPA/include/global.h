@@ -17,15 +17,19 @@
 #define LABEL	260
 #define GOFALSE	261
 #define GOTRUE	262
-#define DONE	263
+#define COPY	263
+#define POP	264
+#define DONE	265
 
 // Keywords:
-#define DIV	264
-#define MOD	265
-#define IF	266
-#define THEN	267
-#define GOTO	268
-#define WHILE	269
+#define DIV	266
+#define MOD	267
+#define IF	268
+#define THEN	269
+#define GOTO	270
+#define WHILE	271
+#define OR	272
+#define AND	273
 
 // Erros:
 #define ERR_VARGRANDE 	1
