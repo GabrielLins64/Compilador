@@ -1,3 +1,5 @@
+x mod 5;
+y div 2 * 1;
 12 * (3 + 41) mod 2 div 5;
 y * x + (myVar div 2);
 novaVariavel;

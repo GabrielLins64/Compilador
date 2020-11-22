@@ -1,3 +1,11 @@
+r-value x
+push 5
+MOD
+r-value y
+push 2
+DIV
+push 1
+*
 push 12
 push 3
 push 41

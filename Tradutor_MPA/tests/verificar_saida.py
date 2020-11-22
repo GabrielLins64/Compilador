@@ -19,14 +19,7 @@ This script outputs "The files are equal!" if both files
 are the same. Otherwise, it outputs:
 
 "The files aren't equal! Differences:
-~~~~~~~~~~~~~~~~~~~
-File 1:
-
-{Things that file 1 contains that file 2 doesn't}.
-~~~~~~~~~~~~~~~~~~~
-File 2:
-
-{Things that file 2 contains that file 1 doesn't}."
+	...
 """
 
 from sys import argv
@@ -34,13 +27,27 @@ from os.path import isfile, isdir
 
 data_path = "../data/"
 
-def compare(file_name_1, file_name_2, dp=data_path):
+def _readlines(f):
+	x = []
+	for i, l in enumerate(f.readlines()):
+		x.append(str(i+1) + ": " + l)
+	return x
+
+def difference(arr1, arr2):
+	diffs = []
+	size = len(arr1) if len(arr1) < len(arr2) else len(arr2)
+	for i in range(size):
+		if(arr1[i] != arr2[i]):
+			diffs.append((arr1[i], arr2[i]))
+	return diffs
+
+def compare(file_name_1, file_name_2, dp):
 	with open(dp+file_name_1) as f1:
 		with open(dp+file_name_2) as f2:
-			f1s, f2s = f1.readlines(), f2.readlines()
-			dif1 = set(f1s).difference(f2s)
-			dif2 = set(f2s).difference(f1s)
-	return dif1, dif2
+			f1s = _readlines(f1)
+			f2s = _readlines(f2)
+			diffs = difference(f1s, f2s)
+	return diffs
 
 def check(arr):
 	if(len(arr) != 2 and len(arr) != 3):
@@ -63,23 +70,16 @@ def check(arr):
 		exit(1)
 
 def main():
-	# dif1, dif2 = compare()
 	check(argv[1:])
 	fn1, fn2 = argv[1], argv[2]
-	dif1, dif2 = compare(fn1, fn2)
-	if(len(dif1)==0 and len(dif2)==0):
+	diffs = compare(fn1, fn2, data_path)
+	if(len(diffs)==0):
 		print("The files are equal!")
 	else:
 		print("The files aren't equal! Differences:")
-		print("~~~~~~~~~~~~~~~~~~~")
-		print(fn1 + ':\n')
-		for dif in dif1:
-			print(dif)
-		print("~~~~~~~~~~~~~~~~~~~")
-		print(fn2 + ':\n')
-		for dif in dif2:
-			print(dif)
-		print("~~~~~~~~~~~~~~~~~~~")
+		print("Legend: ("+fn1+", "+fn2+")")
+		for i in diffs:
+			print(i)
 
 if __name__ == "__main__":
 	main()
