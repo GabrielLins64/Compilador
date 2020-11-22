@@ -39,6 +39,15 @@ def difference(arr1, arr2):
 	for i in range(size):
 		if(arr1[i] != arr2[i]):
 			diffs.append((arr1[i], arr2[i]))
+	if(len(arr1) != len(arr2)):
+		larger = 1 if len(arr1) > len(arr2) else 2
+		larr = arr1 if larger==1 else arr2
+		if(larger==1):
+			for i in range(size, len(larr)):
+				diffs.append((larr[i], " "))
+		else:
+			for i in range(size, len(larr)):
+				diffs.append((" ", larr[i]))
 	return diffs
 
 def compare(file_name_1, file_name_2, dp):

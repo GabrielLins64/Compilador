@@ -89,13 +89,54 @@ goto l9
 label l10
 r-value x
 copy
-gotrue l13 
+gotrue l13
 pop
 r-value y
-label l13 
+label l13
 push 5
 copy
-gotrue l14 
+gotrue l14
 pop
 push 2
 label l14
+r-value x
+copy
+gofalse l15
+pop
+r-value y
+label l15
+push 1
+copy
+gofalse l16
+pop
+push 0
+label l16
+r-value x1
+copy
+gofalse l17
+pop
+r-value x23
+label l17
+gofalse l18
+l-value y
+push 5
+r-value z
+MOD
+:=
+label l18
+label l19
+r-value var1
+copy
+gotrue l21
+pop
+r-value var2
+copy
+gofalse l22
+pop
+r-value var3
+label l22
+label l21
+gofalse l20
+r-value something
+goto l19
+label l20

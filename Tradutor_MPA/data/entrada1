@@ -13,3 +13,7 @@ while (x) then if (z - 1) then z := z - 1;
 while x1 then while x2 then y2:=1;
 x or y;
 5 or 2;
+x and y;
+1 and 0;
+if x1 and x23 then y := 5 mod z;
+while (var1 or var2 and var3) then something;

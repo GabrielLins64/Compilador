@@ -65,6 +65,12 @@ void expr()
 				emitir(POP, NONE);
 				expr(); emitir(LABEL, saida);
 				continue;
+			case AND:
+				saida = novo_rotulo();
+				reconhecer(AND); emitir(COPY, NONE);
+				emitir(GOFALSE, saida);
+				emitir(POP, NONE);
+				expr(); emitir(LABEL, saida);
 			default:
 				return;
 		}
@@ -99,7 +105,6 @@ void fator()
 			emitir(NUM, tokenval); reconhecer(NUM); 
 			break;
 		case ID:
-			// emitir(ID, tokenval); reconhecer(ID);
 			tval = tokenval;
 			reconhecer(ID);
 			lookahead == ASSIGN ? emitir(LVALUE, tval) : emitir(ID, tval);
