@@ -1,4 +1,6 @@
-
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Comandos de compilação, ligação e execução:
+(Testados em Unix com gcc)
 
 ------------- X ------------- X ------------- 
 > Para compilar arquivos src em objeto
@@ -39,10 +41,25 @@ $ gcc -o bin/out src/*.c -Iinclude
 ------------- X ------------- X ------------- 
 > Para executar:
 
-./bin/out
+$ ./bin/out
 
 ------------- X ------------- X ------------- 
 > Para inserir um arquivo de entrada no programa:
 
-./bin/out < data/entrada
+$ ./bin/out < data/entrada
 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Comandos de teste:
+
+------------- X ------------- X ------------- 
+> Para testar uma saída correta, após modificar o código
+e gerar um arquivo de saída 'saida1':
+
+Navegue até a pasta 'tests' e rode:
+
+$ python3 verificar_saida.py saida_correta1 saida1
+
+*Obs: o arquivo saida_correta1 corresponde à
+saída correta para a entrada 1.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
