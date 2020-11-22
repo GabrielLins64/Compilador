@@ -1,5 +1,7 @@
 #include <global.h>
 
+int lookahead;
+
 void erro(int err, int val)
 {
 	switch(err) {
@@ -24,5 +26,11 @@ void perro(char* m, int val)
 		fprintf(stderr, "linha %d: %s '%c'\n", clinha, m, val);
 	else
 		fprintf(stderr, "linha %d: %s\n", clinha, m);
-	exit(1);
+	char tmp = getchar();
+	while(tmp != EOF && tmp != '\n' && tmp != ';') {
+		tmp = getchar();
+	}
+	if(tmp == '\n') clinha += 1;
+	lookahead = tmp;
+	tokenval = NONE;
 }

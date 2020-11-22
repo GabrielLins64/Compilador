@@ -119,6 +119,6 @@ void reconhecer(int t)
 	if(lookahead == t)
 		lookahead = lexan();
 	else {
-		erro(ERR_SINTAXE, t);
+		erro(ERR_SINTAXE, lookahead);
 	}
 }
