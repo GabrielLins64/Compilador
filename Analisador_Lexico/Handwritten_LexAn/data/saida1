@@ -1,0 +1,22 @@
+Token			Valor			Lexema
+
+IF			-			if
+NUM			Pointer			3
+RELOP			LE			<=
+NUM			Pointer			2
+THEN			-			then
+ID			Pointer			var1
+RELOP			EQ			=
+NUM			Pointer			542
+IF			-			if
+ID			Pointer			boolVar
+THEN			-			then
+NUM			Pointer			10
+UNKNOWN			-			+
+NUM			Pointer			2
+ELSE			-			else
+NUM			Pointer			54
+RELOP			NE			<>
+ID			Pointer			z
+ID			Pointer			error
+UNKNOWN			-			;

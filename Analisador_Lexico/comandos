@@ -1,0 +1,39 @@
+Análise Léxica - Comandos para compilar e rodar
+
+------------ X ------------ X ------------ X ------------
+Handwritten Lexical Analyzer:
+
+Para compilar e gerar um executável:
+$ gcc -o bin/out src/*.c -Iinclude
+
+Para executar:
+$ ./bin/out
+
+Para executar com um arquivo de entrada gerando um arquivo
+de saída:
+$ ./bin/out < data/entrada1 > data/entrada2
+
+------------ X ------------ X ------------ X ------------
+Lex:
+
+Para instalar o Lex:
+$ sudo apt install flex
+
+Para compilar e rodar o gerador de analisador léxico Lex:
+$ lex lex.l
+$ cc lex.yy.c
+
+Para rodar o analisador léxico gerado:
+$ ./a.out
+
+*A entrada é dada pelo arquivo "entrada1" em "data/", e a
+saída é dada por "saida1" em "data/".
+
+------------ X ------------ X ------------ X ------------
+Computando o tempo de execução:
+
+Utilize o comando "time" quando for executar
+o analisador léxico. Ex.:
+$ time ./a.out
+$ time ./bin/out < data/entrada1 > data/saida1
+
