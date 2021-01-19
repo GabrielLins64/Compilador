@@ -6,12 +6,14 @@
 %}
 
 %token NUMERO
-%left '|' '&'
-%token LE
-%token GE
-%left '<' '>' '=' LE GE
+%token LE GE GT LT EQ NEQ
+%token AND OR
+%left EQ NEQ LE GE GT LT
+%left OR
+%left AND
 %left '+' '-'
 %left '*' '/' '%'
+%right NOT
 %right UMINUS
 %left '(' ')'
 
@@ -21,20 +23,22 @@ linhas:	linhas expr '\n'	{ printf("%g\n", $2); }
 |	linhas '\n'
 |	/* vazio */
 ;
-expr:	expr '+' expr		{$$=$1+$3;}
-|	expr '-' expr		{$$=$1-$3;}
-|	expr '*' expr		{$$=$1*$3;}
-|	expr '/' expr		{$$=$1/$3;}
-|	'(' expr ')'		{$$=$2;}
-|	'-' expr %prec UMINUS	{$$=-$2;}
-|	expr '<' expr		{$$=$1<$3;}
-|	expr '>' expr		{$$=$1>$3;}
-|	expr '=' expr		{$$=$1==$3;}
-|	expr '|' expr		{$$=$1||$3;}
-|	expr '&' expr		{$$=$1&&$3;}
+expr:	expr '+' expr		{$$=$1+$3; }
+|	expr '-' expr		{$$=$1-$3; }
+|	expr '*' expr		{$$=$1*$3; }
+|	expr '/' expr		{$$=$1/$3; }
+|	'(' expr ')'		{$$=$2;    }
+|	NOT expr %prec NOT	{$$=!$2;   }
+|	'-' expr %prec UMINUS	{$$=-$2;   }
+|	expr EQ expr		{$$=$1==$3;}
+|	expr NEQ expr		{$$=$1!=$3;}
+|	expr OR expr		{$$=$1||$3;}
+|	expr AND expr		{$$=$1&&$3;}
+|	expr LT expr		{$$=$1<$3; }
+|	expr GT expr		{$$=$1>$3; }
 |	expr LE expr		{$$=$1<=$3;}
 |	expr GE expr		{$$=$1>=$3;}
-|	NUMERO			{$$=$1;}
+|	NUMERO			{$$=$1;    }
 ;
 
 %%

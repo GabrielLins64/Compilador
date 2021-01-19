@@ -12,6 +12,13 @@ numero		[0-9]+\.?|[0-9]*\.[0-9]+
 {numero}	{ sscanf(yytext, "%lf", &yylval); return NUMERO; }
 "<="		{ return LE; }
 ">="		{ return GE; }
+">"		{ return GT; }
+"<"		{ return LT; }
+"="		{ return EQ; }
+"!="		{ return NEQ;}
+"!"		{ return NOT;}
+"|"		{ return OR; }
+"&"		{ return AND;}
 \n|.		return yytext[0];
 
 %%
