@@ -22,6 +22,7 @@
 linhas:	linhas expr '\n'	{ printf("%g\n", $2); }
 |	linhas '\n'
 |	/* vazio */
+|	error '\n'		{ yyerror("Redigite a última linha: "); yyerrok; }
 ;
 expr:	expr '+' expr		{$$=$1+$3; }
 |	expr '-' expr		{$$=$1-$3; }
@@ -48,11 +49,6 @@ void main()
 {
 	printf("Calculadora!\n");
 	yyparse();
-	if(erro==0) printf("Expressão válida!\n");
+	printf("Adeus!\n");
 }
 
-void yyerror()
-{
-	printf("Expressão inválida!\n");
-	erro=1;
-}
