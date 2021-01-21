@@ -1,0 +1,18 @@
+~~~~~~~~ X ~~~~~~~~ X ~~~~~~~~
+
+Gerador de árvore gramatical para
+Expressões Regulares!
+Insira uma expressão regular: 
+Árvore Sintática:
+ER
+ER | ER
+ER | (ER)
+ER | (ER | ER)
+ER | (ER | e)
+ER | (d | e)
+ER . ER | (d | e)
+ER . c | (d | e)
+ER* . c | (d | e)
+g* . c | (d | e)
+
+~~~~~~~~ X ~~~~~~~~ X ~~~~~~~~
